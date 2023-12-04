@@ -22,6 +22,7 @@ RUN apk add --no-cache bareos bareos-storage tar
 RUN tar czf /bareos-sd.tgz /etc/bareos/bareos-sd.d
 RUN mkdir /run/bareos \
  && chown bareos /run/bareos
+RUN chown -R bareos: /var/lib/bareos
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod u+x /docker-entrypoint.sh
